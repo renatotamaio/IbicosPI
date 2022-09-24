@@ -4,7 +4,8 @@
  * Será neste arquivo onde as rotas serão importadas.
  */
 
-import Home from "@/views/Home.vue";
+const Home = () => import("@/views/Home.vue");
+import LoginRouter from "@/views/auth/router";
 
 export default [
   {
@@ -27,10 +28,11 @@ export default [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
     meta: {
-      requireAuth: false,
+      requireAuth: true,
       layout: "default",
       action: "",
       resource: "",
     },
   },
+  ...LoginRouter,
 ];

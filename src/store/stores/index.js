@@ -1,5 +1,5 @@
-import teste from './teste'
+import snackbar from "./snackbar";
 
 export default {
-    ...teste
-}
+  snackbar,
+};
