@@ -6,6 +6,7 @@ export default [
     name: "Login",
     component: Login,
     meta: {
+      title: "Login",
       requireAuth: false,
       layout: "default",
       action: "",
