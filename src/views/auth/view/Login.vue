@@ -2,7 +2,7 @@
   <v-container class="background-yellow" fluid fill-height>
     <v-layout align-center justify-center>
       <v-form ref="form" lazy-validation @submit.prevent="login()">
-        <v-card elevation="6" class="pa-4 efeito-vidro">
+        <v-card elevation="6" class="pa-4 white">
           <v-card-title>
             <h1 class="text-h5 mb-2 font-weight-regular">Faça seu login</h1>
           </v-card-title>
@@ -26,9 +26,10 @@
               </v-col>
               <v-col cols="12">
                 <div class="d-flex justify-end">
-                  <v-btn type="submit" color="primary" :loading="loading"
-                    >Logar</v-btn
-                  >
+                  <v-btn type="submit" color="primary" :loading="loading">
+                    <v-icon left dark>mdi-location-enter</v-icon>
+                    Logar
+                  </v-btn>
                 </div>
               </v-col>
             </v-row>
@@ -71,19 +72,10 @@ export default {
 
 <style scoped>
 .background-yellow {
-  background-image: url("../../../assets/image/background-login-client.png");
+  background-image: url("../../../assets/image/background-login-client.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-}
-
-.efeito-vidro {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 </style>

@@ -1,6 +1,6 @@
 export default {
   snackbar: {
-    show: true,
+    show: false,
     text: "",
     color: "green",
     buttonColor: "white",
