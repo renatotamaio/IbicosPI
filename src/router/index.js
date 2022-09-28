@@ -14,12 +14,16 @@ const router = new VueRouter({
 });
 
 router.beforeResolve((to, from, next) => {
-  const user = ls.get("user");
+  const config = ls.get("config");
 
-  if (to.meta.requireAuth && !user.token) {
-    next({ name: "Login" });
+  if (to.meta.requireAuth && !config.token) {
+    next({ name: "Auth" });
   }
-  
+
+  if (to.name == "Auth" && config.token) {
+    next({ name: "Dashboard" });
+  }
+
   next();
 });
 

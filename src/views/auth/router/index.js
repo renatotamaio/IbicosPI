@@ -2,8 +2,8 @@ const Login = () => import("../view/Login.vue");
 
 export default [
   {
-    path: "/login",
-    name: "Login",
+    path: "/auth",
+    name: "Auth",
     component: Login,
     meta: {
       title: "Login",

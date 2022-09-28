@@ -17,18 +17,13 @@
 
     <div class="d-flex flex-row align-center">
       <v-btn
-        :to="{ name: 'Login' }"
+        :to="{ name: 'Auth' }"
         color="secondary"
         class="black--text mx-2"
         elevation="3"
       >
         <v-icon left dark> mdi-account-arrow-left </v-icon>
-        Logar
-      </v-btn>
-
-      <v-btn color="secondary" class="black--text mx-2" elevation="3">
-        <v-icon left dark> mdi-account-plus </v-icon>
-        Registrar-se
+        Logar/Registrar
       </v-btn>
     </div>
   </v-app-bar>

@@ -6,6 +6,7 @@
 
 const Home = () => import("@/views/Home.vue");
 import LoginRouter from "@/views/auth/router";
+import DashboardRouter from "@/views/dashboard/router";
 
 export default [
   {
@@ -35,4 +36,5 @@ export default [
     },
   },
   ...LoginRouter,
+  ...DashboardRouter,
 ];
