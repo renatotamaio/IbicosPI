@@ -1,31 +1,30 @@
 <template>
-  <v-app>
-    <Header />
-
-    <v-main>
-      <router-view />
-    </v-main>
-
-    <SnackbarComponent />
-  </v-app>
+  <compoment :is="layout">
+    <router-view />
+  </compoment>
 </template>
 
 <script>
-import SnackbarComponent from "./components/SnackbarComponent.vue";
-import Header from "./components/Header.vue";
-
 export default {
   name: "App",
-  components: {
-    SnackbarComponent,
-    Header,
-  },
   data: () => ({
     //
   }),
   beforeUpdate() {
     const title = this.$route.meta.title;
     document.title = `IBicos ${title ? `- ${title}` : ""}`;
+  },
+  computed: {
+    layouts: {
+      get() {
+        return this.$store.getters["config/getLayouts"];
+      },
+    },
+    layout() {
+      const routeLayout = this.$route.meta.layout || "default";
+
+      return this.layouts[routeLayout].component;
+    },
   },
 };
 </script>
