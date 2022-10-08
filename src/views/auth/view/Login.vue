@@ -1,20 +1,17 @@
 <template>
   <v-container class="background-with-image" fluid fill-height>
     <v-layout align-center justify-center>
-      <v-card
-        elevation="6"
-        class="pa-4 white width-card-personalizado"
-      >
+      <v-card elevation="6" class="pa-4 white width-card-personalizado">
         <v-card-title>
           <h1 class="text-h5 mb-2 font-weight-regular">
-            {{ forms[formSelected].title }}
+            {{ forms[typeForm].title }}
           </h1>
         </v-card-title>
         <v-card-text>
           <v-form ref="form" lazy-validation @submit.prevent="validateForm()">
             <component
-              :ref="forms[formSelected].ref"
-              :is="forms[formSelected].component"
+              :ref="forms[typeForm].ref"
+              :is="forms[typeForm].component"
             />
             <v-row>
               <v-col cols="12">
@@ -25,9 +22,15 @@
                     class="d-flex flex-row align-center justify-center mr-3 mr-md-0 order-md-1 order-2"
                   >
                     <p>
-                      {{ forms[formSelected].preModifyFormText }}
-                      <v-btn class="ma-0 pa-0" text small color="primary" @click="changeForm()">
-                        {{ forms[formSelected].modifyFormText }}
+                      {{ forms[typeForm].preModifyFormText }}
+                      <v-btn
+                        class="ma-0 pa-0"
+                        text
+                        small
+                        color="primary"
+                        @click="changeForm()"
+                      >
+                        {{ forms[typeForm].modifyFormText }}
                       </v-btn>
                     </p>
                   </div>
@@ -38,9 +41,9 @@
                     :loading="loading"
                   >
                     <v-icon left dark>
-                      {{ forms[formSelected].buttonValidate.icon }}
+                      {{ forms[typeForm].buttonValidate.icon }}
                     </v-icon>
-                    {{ forms[formSelected].buttonValidate.text }}
+                    {{ forms[typeForm].buttonValidate.text }}
                   </v-btn>
                 </div>
               </v-col>
@@ -57,6 +60,13 @@ import { removeMaskCellphone } from "@/helper";
 
 export default {
   name: "LoginView",
+  props: {
+    typeForm: {
+      type: String,
+      default: "login",
+      require: true,
+    },
+  },
   data() {
     return {
       forms: {
@@ -71,7 +81,7 @@ export default {
           preModifyFormText: "Não possui uma conta?",
           modifyFormText: "Cria uma conta grátis.",
         },
-        register: {
+        registrar: {
           title: "Faça seu cadastro",
           component: () => import("../components/FormRegisterComponent.vue"),
           ref: "formRegister",
@@ -83,7 +93,6 @@ export default {
           modifyFormText: "Logar com sua conta.",
         },
       },
-      formSelected: "login",
       loading: false,
     };
   },
@@ -97,7 +106,7 @@ export default {
       const validate = this.$refs.form.validate();
 
       if (validate) {
-        this[this.formSelected]();
+        this[this.typeForm]();
       }
     },
     login() {
@@ -136,7 +145,8 @@ export default {
       console.log(removeMaskCellphone(this.user.phone));
     },
     changeForm() {
-      this.formSelected = this.formSelected == "login" ? "register" : "login";
+      const form = this.typeForm == "login" ? "registrar" : "login";
+      this.$router.push({ name: "Auth", params: { typeForm: form } });
     },
   },
   computed: {
