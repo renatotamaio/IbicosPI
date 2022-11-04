@@ -45,16 +45,26 @@
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Mapa do site</h6>
             <p>
-              <a href="Página-Inicial.html" class="text-reset">início</a>
+            <router-link to=/>
+              início
+            </router-link>
+            </p>
+          
+            <p>
+            <router-link to=about>
+                Sobre
+            </router-link>
             </p>
             <p>
-              <a href="Sobre.html" class="text-reset">Sobre</a>
+            <router-link to=contact>
+                Contato
+            </router-link>
             </p>
             <p>
-              <a href="Contato.html" class="text-reset">Contato</a>
-            </p>
-            <p>
-              <a href="Login.html" class="text-reset">Login</a>
+              
+             <router-link to=login> 
+                Login
+            </router-link>
             </p>
           </div>
           <!-- Grid column -->

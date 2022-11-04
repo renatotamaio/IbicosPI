@@ -673,7 +673,7 @@
     height: 264px;
   }
 } .u-section-5 {
-  background-image: url("images/g.jpg");
+  background-image: url("../images/g.jpg");
   background-position: 50% 50%;
 }
 
@@ -689,7 +689,7 @@
 .u-section-5 .u-image-1 {
   min-height: 658px;
   pointer-events: auto;
-  background-image: url("images/e980c5b3b9f3ba8afcedfa0d960da7752ce78cc3173beff2ef3952d589d48031491007649a13855d49035e4b5ad8839fa52697324c4c1ec29a8f95_1280.jpg");
+  background-image: url("../images/e980c5b3b9f3ba8afcedfa0d960da7752ce78cc3173beff2ef3952d589d48031491007649a13855d49035e4b5ad8839fa52697324c4c1ec29a8f95_1280.jpg");
   background-position: 50% 50%;
 }
 
@@ -1430,7 +1430,7 @@
     margin-left: 90px;
   }
 } .u-section-7 {
-  background-image: url("images/g.jpg");
+  background-image: url("../images/g.jpg");
   background-position: 50% 50%;
 }
 

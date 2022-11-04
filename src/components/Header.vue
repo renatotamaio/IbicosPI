@@ -42,36 +42,44 @@
         <div class="u-custom-menu u-nav-container">
           <ul class="u-nav u-unstyled u-nav-1">
             <li class="u-nav-item">
+              <router-link to=/>
               <a
                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                href="Página-Inicial.html"
+                
                 style="padding: 10px 20px"
                 >Página Inicial</a
               >
+              </router-link>
             </li>
             <li class="u-nav-item">
+              <router-link to=about>
               <a
                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                 href="Sobre.html"
                 style="padding: 10px 20px"
                 >Sobre</a
               >
+            </router-link>
             </li>
             <li class="u-nav-item">
+              <router-link to=contact>
               <a
                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                 href="Contato.html"
                 style="padding: 10px 20px"
                 >Contato</a
               >
+              </router-link>
             </li>
             <li class="u-nav-item">
+              <router-link to=login>
               <a
                 class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                 href="Login.html"
                 style="padding: 10px 20px"
                 >Login</a
               >
+            </router-link>
             </li>
           </ul>
         </div>
