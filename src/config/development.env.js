@@ -1,3 +1,3 @@
 export default {
-  BASE_URL_API: "http://apicentral-pi.test:8000/api/",
+  BASE_URL_API: "http://192.168.0.109:80/api/",
 };

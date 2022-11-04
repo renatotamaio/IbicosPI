@@ -23,5 +23,14 @@ export default {
         });
     });
   },
-  // register({ commit }, data) {},
+  register({ commit }, data) {
+    return new Promise(function (resolve, reject) {
+      apiNotAuth.post('auth/register', data).then(response => {
+        resolve(response.data.data)
+      }).catch(error => {
+        console.error(error),
+          reject(error)
+      })
+    })
+  },
 };

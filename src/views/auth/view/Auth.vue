@@ -141,12 +141,32 @@ export default {
           this.loading = false;
         });
     },
-    register() {
-      console.log(removeMaskCellphone(this.user.phone));
+    registrar() {
+      const newUser = this.user;
+      newUser.phone = removeMaskCellphone(this.user.phone);
+      newUser.bicosCategories =
+        this.user.bicosCategories && this.user.bicosCategories.length > 1
+          ? this.user.bicosCategories
+          : null;
+
+      this.$store.dispatch("auth/register", newUser).then((response) => {
+        this.$store.dispatch("snackbar/setSnackbar", {
+          show: true,
+          text: "Registrado com sucesso.",
+          color: "green",
+          buttonColor: "white",
+        });
+
+        this.$router.push({ name: "Auth", param: "registrar" });
+      });
     },
     changeForm() {
       const form = this.typeForm == "login" ? "registrar" : "login";
-      this.$router.push({ name: "Auth", params: { typeForm: form } });
+
+      this.$router.push({
+        name: "Auth",
+        params: { typeForm: form },
+      });
     },
   },
   computed: {

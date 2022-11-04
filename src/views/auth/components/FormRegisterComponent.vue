@@ -26,7 +26,7 @@
           <span>
             Eu sou
             <strong>{{
-              user.type == "C" ? "Cliente" : "Prestador de serviço"
+              user.type == "C" ? "Cliente" : "Prestador(a) de serviço"
             }}</strong>
           </span>
         </template>
@@ -49,6 +49,20 @@
         :rules="emailRules"
         v-model="user.email"
       ></v-text-field>
+    </v-col>
+    <v-col v-if="user.type == 'P'" class="ma-0 pa-0" cols="12">
+      <v-autocomplete
+        prepend-icon="mdi-account-hard-hat"
+        v-model="user.bicosCategories"
+        :loading="loadingBicosCategories"
+        :rules="bicosCategoriesRules"
+        :items="bicosCategories"
+        item-text="description"
+        item-value="id"
+        multiple
+        chips
+        label="Você presta quais serviços? Pode ser selecionado mais de um serviço."
+      ></v-autocomplete>
     </v-col>
     <v-col class="ma-0 pa-0" cols="12">
       <v-text-field
@@ -98,6 +112,14 @@ export default {
           "E-mail é inválido.",
       ],
       nameRules: [(v) => !!v || "Necessário haver nome completo."],
+      bicosCategoriesRules: [
+        (v) =>
+          !!v ||
+          "Necessário haver pelo menos uma categoria de serviço selecionado.",
+        (v) =>
+          !!v.length ||
+          "Necessário haver pelo menos uma categoria de serviço selecionado.",
+      ],
       phoneRules: [(v) => !!v || "Necessário haver celular."],
       passwordRules: [(v) => !!v || "Necessário haver senha."],
       confirmPasswordRules: [
@@ -107,10 +129,18 @@ export default {
       ],
 
       loading: false,
+      loadingBicosCategories: false,
       avatarC: avatarC,
       avatarP: avatarP,
       showPassword: false,
     };
+  },
+  created() {
+    this.loadingBicosCategories = true;
+
+    this.$store.dispatch("bicosCategory/initialize").finally(() => {
+      this.loadingBicosCategories = false;
+    });
   },
   computed: {
     user: {
@@ -119,6 +149,11 @@ export default {
       },
       set(value) {
         this.$store.dispatch("auth/setUser", value);
+      },
+    },
+    bicosCategories: {
+      get() {
+        return this.$store.getters["bicosCategory/getBicosCategories"];
       },
     },
   },

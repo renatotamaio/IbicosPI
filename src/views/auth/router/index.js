@@ -1,10 +1,10 @@
-const Login = () => import("../view/Login.vue");
+const Auth = () => import("../view/Auth.vue");
 
 export default [
   {
     path: "/:typeForm",
     name: "Auth",
-    component: Login,
+    component: Auth,
     props: true,
     meta: {
       title: "Login",

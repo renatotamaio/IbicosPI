@@ -8,5 +8,6 @@ export default {
     status: null,
     created_at: null,
     updated_at: null,
+    bicosCategories: [],
   },
 };
