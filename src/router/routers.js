@@ -5,10 +5,22 @@
  */
 
 const Home = () => import("@/views/Home.vue");
+const page404 = () => import('@/views/404.vue');
 import LoginRouter from "@/views/auth/router";
 import DashboardRouter from "@/views/dashboard/router";
 
 export default [
+  {
+    path: "*",
+    name: "error404",
+    component: page404,
+    meta: {
+      requireAuth: false,
+      layout: "normal",
+      action: "",
+      resource: "",
+    },
+  },
   {
     path: "/",
     name: "Home",
