@@ -1,5 +1,7 @@
 <template>
   <v-app>
+    <Header />
+
     <v-main>
       <slot></slot>
     </v-main>
@@ -10,11 +12,13 @@
 
 <script>
 import SnackbarComponent from "@/components/SnackbarComponent.vue";
+import Header from './components/Header.vue'
 
 export default {
   name: "AuthLayout",
   components: {
     SnackbarComponent,
+    Header
   },
 };
 </script>
