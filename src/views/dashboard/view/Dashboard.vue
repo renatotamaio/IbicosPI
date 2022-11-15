@@ -22,7 +22,6 @@ export default {
   computed: {
     user() {
       const user = ls.get("config").user;
-      console.log(user);
       return user;
     },
   },
