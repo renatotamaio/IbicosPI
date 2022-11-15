@@ -28,7 +28,9 @@
           Veja bicos postados dentro da sua área.
         </v-card-subtitle>
         <v-card-text>
-          <CardPrevBicos />
+          <v-card max-height="500" class="overflow-y-auto" color="grey">
+            <CardPrevBicos v-for="(index, i) in 5" :key="i" />
+          </v-card>
         </v-card-text>
       </v-card>
     </v-col>
@@ -36,13 +38,13 @@
 </template>
 
 <script>
-import CardPrevBicos from './componentsProvider/CardPrevBicos.vue'
+import CardPrevBicos from "./componentsProvider/CardPrevBicos.vue";
 
 export default {
   name: "DashboardProvider",
   components: {
-    CardPrevBicos
-  }
+    CardPrevBicos,
+  },
 };
 </script>
 

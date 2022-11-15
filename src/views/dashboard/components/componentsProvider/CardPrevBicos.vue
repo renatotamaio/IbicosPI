@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="ma-3">
     <v-card-title>
       <span>Preciso de Jardineiro</span>
       <v-spacer></v-spacer>
@@ -9,7 +9,7 @@
             <span class="white--text text-h5">CJ</span>
           </v-avatar>
         </template>
-        <span>CJ GTA</span>
+        <span>Cledinilson Almeida dos Santos</span>
       </v-tooltip>
     </v-card-title>
     <v-card-text>
